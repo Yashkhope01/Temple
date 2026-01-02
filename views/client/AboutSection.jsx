@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useLanguage } from '@/views/client/LanguageProvider'
 
 export default function AboutSection() {
@@ -23,17 +24,51 @@ export default function AboutSection() {
   const t = content[locale]
 
   return (
-    <section className="py-20 md:py-32 bg-white">
-      <div className="container-custom">
-        <div className="max-w-4xl mx-auto text-center">
-          <div className="divider-accent mb-8"></div>
-          <h2 className="heading-secondary mb-8 text-primary-900">
-            {t.title}
-          </h2>
-          <div className="divider-accent mb-10"></div>
-          <p className="text-body text-primary-700 max-w-2xl mx-auto">
-            {t.description}
-          </p>
+    <section className="py-16 bg-beige">
+      <div className="container mx-auto px-4">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex items-center justify-center gap-8 mb-8">
+            {/* Left Image Frame */}
+            <div className="hidden md:block">
+              <div className="relative w-32 h-40 border-4 border-tan rounded-lg overflow-hidden bg-white shadow-lg transform -rotate-3 hover:rotate-0 transition-transform duration-300">
+                <div className="absolute inset-1 border-2 border-tan/50"></div>
+                <Image
+                  src="/images/sc1.png"
+                  alt="Temple"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+
+            {/* Center Content */}
+            <div className="flex-1 text-center">
+              <h2 className="text-3xl font-serif text-charcoal mb-4">About Our Temple Trust</h2>
+              <p className="text-base text-charcoal/80 leading-relaxed">
+                {t.description}
+              </p>
+            </div>
+
+            {/* Right Image Frame */}
+            <div className="hidden md:block">
+              <div className="relative w-32 h-40 border-4 border-tan rounded-lg overflow-hidden bg-white shadow-lg transform rotate-3 hover:rotate-0 transition-transform duration-300">
+                <div className="absolute inset-1 border-2 border-tan/50"></div>
+                <Image
+                  src="/images/sc2.png"
+                  alt="Temple"
+                  fill
+                  className="object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Decorative Divider */}
+          <div className="flex items-center justify-center gap-4 mt-8">
+            <div className="flex-1 h-1 bg-gradient-to-r from-beige via-tan to-beige"></div>
+            <div className="text-tan text-2xl">✦</div>
+            <div className="flex-1 h-1 bg-gradient-to-r from-beige via-tan to-beige"></div>
+          </div>
         </div>
       </div>
     </section>

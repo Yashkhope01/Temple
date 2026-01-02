@@ -10,8 +10,26 @@ export default async function HomePage() {
   return (
     <>
       <Hero />
+      
+      {/* Divider */}
+      <div className="flex justify-center bg-beige py-8">
+        <div className="w-40 h-1 bg-temple-orange"></div>
+      </div>
+
       <AboutSection />
+
+      {/* Divider */}
+      <div className="flex justify-center bg-beige py-8">
+        <div className="w-40 h-1 bg-temple-orange"></div>
+      </div>
+
       <FeaturedEvents />
+
+      {/* Divider */}
+      <div className="flex justify-center bg-beige py-8">
+        <div className="w-40 h-1 bg-temple-orange"></div>
+      </div>
+
       <GalleryPreview />
     </>
   )

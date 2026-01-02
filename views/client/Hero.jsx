@@ -1,6 +1,5 @@
 'use client'
 
-import Link from 'next/link'
 import Image from 'next/image'
 import { useLanguage } from '@/views/client/LanguageProvider'
 import { addLocaleToPath } from '@/lib/i18n'
@@ -10,67 +9,59 @@ export function Hero() {
 
   const content = {
     en: {
-      title: 'Welcome to Temple Trust',
-      subtitle: 'A sacred space for spiritual growth and community connection',
-      cta: 'Explore Our Gallery',
+      title: 'The povine and shirlis temple temple',
+      description: 'Your oijuen sweet mono dierrioos in Laur-dalwatan tur viathait enje, sea lorriher, oocber, ens vons tod cuf, hes crearm, same hus undenume, connectia i rubaraaoc. thero arktarien w zolem hris tvins ous nower eruss ever elic. ens pare l td of ori cne tlie teos and life.',
+      intro: 'Introduces for Nand/ius cus comple',
+      explore: 'Explore Temple',
+      learn: 'Learn More',
     },
     hi: {
-      title: 'मंदिर ट्रस्ट में आपका स्वागत है',
-      subtitle: 'आध्यात्मिक विकास और सामुदायिक जुड़ाव के लिए एक पवित्र स्थान',
-      cta: 'हमारी गैलरी देखें',
+      title: 'मंदिर मंदिर',
+      description: 'आपका पवित्र मंदिर अनुभव।',
+      intro: 'मंदिर परिचय',
+      explore: 'मंदिर खोजें',
+      learn: 'और जानें',
     },
     mr: {
-      title: 'मंदिर ट्रस्ट मध्ये आपले स्वागत आहे',
-      subtitle: 'आध्यात्मिक वाढ आणि समुदाय जोडण्यासाठी एक पवित्र जागा',
-      cta: 'आमची गॅलरी पहा',
+      title: 'मंदिर मंदिर',
+      description: 'आपचा पवित्र मंदिर अनुभव।',
+      intro: 'मंदिर परिचय',
+      explore: 'मंदिर शोधा',
+      learn: 'आणखी जाणून घ्या',
     },
   }
 
-  // Fallback to English if locale is not found
   const t = content[locale] || content.en
 
   return (
-    <section className="relative min-h-[90vh] md:min-h-screen flex items-center justify-center overflow-hidden">
-      
-      {/* Background Image */}
-      <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/1-SIDDHIVIYAK-BACKDROP-2.png"
-          alt="Temple interior with Ganesha"
-          fill
-          className="object-cover"
-          priority
-          quality={90}
-          sizes="100vw"
-        />
-        {/* Single, soft overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/40 via-black/30 to-black/40"></div>
-      </div>
+    <section className="relative h-96 lg:h-[600px] flex items-center justify-start overflow-hidden">
+      {/* Full Width Background Image */}
+      <Image
+        src="/images/Gemini_Generated_Image_9dmdsj9dmdsj9dmd.png"
+        alt="Temple"
+        fill
+        className="object-cover absolute inset-0"
+        priority
+        quality={90}
+      />
 
-      {/* Content */}
-      <div className="relative z-10 container-custom text-center px-4">
-        <div className="divider-accent bg-white/40 mb-8"></div>
+      {/* Dark Overlay for better text readability */}
+      <div className="absolute inset-0 bg-black/30"></div>
 
-        <h1 className="heading-primary mb-8 text-white drop-shadow-xl">
+      {/* Text Content - Transparent Background */}
+      <div className="relative z-10 w-full lg:w-1/2 flex flex-col justify-center px-6 lg:px-12 py-12 lg:py-0">
+        <h1 className="text-4xl lg:text-5xl font-serif font-bold text-white mb-6 leading-tight drop-shadow-lg">
           {t.title}
         </h1>
 
-        <div className="divider-accent bg-white/40"></div>
-
-        <p className="text-body max-w-2xl mx-auto mb-12 mt-8 text-white/95 drop-shadow-lg text-lg md:text-xl">
-          {t.subtitle}
+        <p className="text-base lg:text-lg text-white/95 mb-6 leading-relaxed drop-shadow-md">
+          {t.description}
         </p>
 
-        <Link
-          href={addLocaleToPath('/gallery', locale)}
-          className="btn-primary shadow-2xl hover:scale-105 transition-transform"
-        >
-          {t.cta}
-        </Link>
+        <p className="text-sm lg:text-base font-medium text-white/90 mb-6 drop-shadow-md">
+          {t.intro}
+        </p>
       </div>
-
-      {/* Bottom fade */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-primary-50 via-primary-50/80 to-transparent pointer-events-none z-10"></div>
     </section>
   )
 }

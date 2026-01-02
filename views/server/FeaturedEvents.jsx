@@ -35,24 +35,27 @@ export async function FeaturedEvents() {
 
   if (events.length === 0) {
     return (
-      <section className="py-20 md:py-32 bg-primary-50">
-        <div className="container-custom">
-          <div className="divider-accent mb-8"></div>
-          <h2 className="heading-secondary text-center mb-8">{t.title}</h2>
-          <div className="divider-accent mb-8"></div>
-          <p className="text-center text-body text-primary-600">{t.noEvents}</p>
+      <section className="py-12">
+        <div className="container mx-auto px-4">
+          <h2 className="text-3xl font-serif text-charcoal text-center mb-8">{t.title}</h2>
+          <p className="text-center text-charcoal/60">{t.noEvents}</p>
         </div>
       </section>
     )
   }
 
   return (
-    <section className="py-20 md:py-32 bg-primary-50">
-      <div className="container-custom">
-        <div className="divider-accent mb-8"></div>
-        <h2 className="heading-secondary text-center mb-16">{t.title}</h2>
-        <div className="divider-accent mb-12"></div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+    <section className="py-16 bg-gradient-to-b from-transparent to-beige/20">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-serif text-charcoal mb-6">{t.title}</h2>
+          <div className="flex items-center justify-center gap-4">
+            <div className="w-12 h-0.5 bg-tan"></div>
+            <div className="text-temple-orange text-2xl">✦</div>
+            <div className="w-12 h-0.5 bg-tan"></div>
+          </div>
+        </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {events.map((event) => {
             const title = getLocalizedContent(event.title, locale)
             const description = getLocalizedContent(event.description, locale)
@@ -62,38 +65,36 @@ export async function FeaturedEvents() {
             return (
               <div
                 key={event._id}
-                className="bg-white border border-primary-200 overflow-hidden hover:shadow-lg transition-all duration-300 group"
+                className="bg-white hover:shadow-lg transition-shadow rounded-lg overflow-hidden"
               >
                 {event.image && (
-                  <div className="relative h-56 w-full overflow-hidden">
+                  <div className="relative h-48 w-full overflow-hidden">
                     <Image
                       src={event.image.path.startsWith('http') ? event.image.path : getCockpitImageUrl(event.image.path)}
                       alt={title}
                       fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 33vw, 25vw"
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 33vw"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
                   </div>
                 )}
-                <div className="p-8">
-                  <div className="text-xs text-primary-500 mb-4 tracking-wide uppercase">
+                <div className="p-6">
+                  <div className="text-sm text-temple-orange mb-2">
                     {eventDate.toLocaleDateString(locale === 'en' ? 'en-US' : locale === 'hi' ? 'hi-IN' : 'mr-IN', {
                       year: 'numeric',
-                      month: 'long',
+                      month: 'short',
                       day: 'numeric',
                     })}
                   </div>
-                  <div className="w-12 h-0.5 bg-saffron-400 mb-4"></div>
-                  <h3 className="text-xl font-serif font-light mb-4 text-primary-900">{title}</h3>
-                  <p className="text-sm text-primary-600 line-clamp-3 leading-relaxed">{description}</p>
+                  <h3 className="text-xl font-serif mb-2 text-charcoal">{title}</h3>
+                  <p className="text-sm text-charcoal/70 line-clamp-3">{description}</p>
                 </div>
               </div>
             )
           })}
         </div>
-        <div className="text-center">
-          <Link href={addLocaleToPath('/events', locale)} className="btn-secondary">
+        <div className="text-center mt-8">
+          <Link href={addLocaleToPath('/events', locale)} className="text-temple-orange hover:underline">
             {t.viewAll}
           </Link>
         </div>
@@ -101,4 +102,4 @@ export async function FeaturedEvents() {
     </section>
   )
 }
-
+                                                              

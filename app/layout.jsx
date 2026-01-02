@@ -1,19 +1,21 @@
-import { Inter, Playfair_Display } from 'next/font/google'
+import { Lato, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 import { LanguageProvider } from '@/views/client/LanguageProvider'
 import { Header } from '@/views/client/Header'
 import { Footer } from '@/views/client/Footer'
 
-const inter = Inter({
+const lato = Lato({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-lato',
   display: 'swap',
+  weight: ['300', '400', '700'],
 })
 
-const playfair = Playfair_Display({
+const cormorant = Cormorant_Garamond({
   subsets: ['latin'],
-  variable: '--font-playfair',
+  variable: '--font-cormorant',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 })
 
 export const metadata = {
@@ -33,12 +35,12 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${inter.variable} ${playfair.variable}`} suppressHydrationWarning>
-      <body className="bg-primary-50 text-primary-900">
+    <html lang="en" className={`${lato.variable} ${cormorant.variable}`} suppressHydrationWarning>
+      <body className="bg-beige text-charcoal" style={{ backgroundImage: "url('/images/1-SIDDHIVIYAK-BACKDROP-2.png')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
         <LanguageProvider>
-          <div className="flex min-h-screen flex-col bg-primary-50">
+          <div className="flex min-h-screen flex-col bg-beige">
             <Header />
-            <main className="flex-1 bg-primary-50">{children}</main>
+            <main className="flex-1 bg-beige">{children}</main>
             <Footer />
           </div>
         </LanguageProvider>

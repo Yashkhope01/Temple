@@ -1,4 +1,5 @@
 import { EventsList } from '@/views/server/EventsList'
+import { EventsPageTitle } from '@/views/client/EventsPageTitle'
 import { notFound } from 'next/navigation'
 import { supportedLocales } from '@/lib/i18n'
 
@@ -13,16 +14,15 @@ export const revalidate = 0
 
 export default async function LocaleEventsPage({ params }) {
   const { locale } = await params
-  const finalLocale = locale && supportedLocales.includes(locale) ? locale : 'en'
   
   if (locale && !supportedLocales.includes(locale)) {
     notFound()
   }
 
   return (
-    <div className="py-12">
-      <div className="container-custom">
-        <h1 className="heading-primary text-center mb-12">Events</h1>
+    <div className="py-12 bg-beige min-h-screen">
+      <div className="container mx-auto px-4">
+        <EventsPageTitle />
         <EventsList />
       </div>
     </div>

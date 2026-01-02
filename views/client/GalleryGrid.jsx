@@ -1,8 +1,8 @@
-
 'use client'
 
 import { useState, useEffect } from 'react'
 import { getCockpitImageUrl } from '@/models/api/cockpit'
+import Image from 'next/image'
 
 export function GalleryGrid({ initialImages = [] }) {
   const [images, setImages] = useState(initialImages)
@@ -21,11 +21,17 @@ export function GalleryGrid({ initialImages = [] }) {
     return () => window.removeEventListener('keydown', handleKey)
   }, [])
 
+  // Masonry layout helper - varied aspect ratios
+  const getAspectRatio = (index) => {
+    const ratios = ['aspect-square', 'aspect-video', 'aspect-[3/4]', 'aspect-square', 'aspect-[4/3]']
+    return ratios[index % ratios.length]
+  }
+
   return (
     <>
-      {/* GRID */}
-      <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-        {images.map((item) => {
+      {/* MASONRY GRID */}
+      <div className="columns-1 md:columns-2 lg:columns-3 xl:columns-5 gap-4">
+        {images.map((item, index) => {
           const img = item.image || item.Image
           if (!img?.path) return null
 
@@ -33,13 +39,15 @@ export function GalleryGrid({ initialImages = [] }) {
             <button
               key={item._id}
               onClick={() => setActiveImage(item)}
-              className="relative aspect-square overflow-hidden rounded-lg bg-gray-200 cursor-pointer"
+              className="relative mb-4 w-full overflow-hidden rounded-xl bg-gray-200 cursor-pointer group break-inside-avoid"
             >
               <img
                 src={getCockpitImageUrl(img.path)}
                 alt={item.title || 'Gallery image'}
-                className="w-full h-full object-cover hover:scale-105 transition-transform"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
               />
+              {/* Overlay on hover */}
+              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
             </button>
           )
         })}

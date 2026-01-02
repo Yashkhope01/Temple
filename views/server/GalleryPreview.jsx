@@ -33,30 +33,33 @@ export async function GalleryPreview() {
   }
 
   return (
-    <section className="py-20 md:py-32 bg-white">
-      <div className="container-custom">
-        <div className="divider-accent mb-8"></div>
-        <h2 className="heading-secondary text-center mb-16">{t.title}</h2>
-        <div className="divider-accent mb-12"></div>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-6 mb-12">
+    <section className="py-16 bg-beige">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl font-serif text-charcoal mb-6">{t.title}</h2>
+          <div className="flex items-center justify-center gap-3">
+            <div className="w-12 h-0.5 bg-tan"></div>
+            <div className="text-temple-orange text-xl">✧</div>
+            <div className="w-12 h-0.5 bg-tan"></div>
+          </div>
+        </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
           {images.map((image) => (
             <div
               key={image._id}
-              className="relative aspect-square overflow-hidden bg-primary-100 group cursor-pointer"
+              className="relative aspect-square overflow-hidden rounded-lg"
             >
               <Image
                 src={image.image.path.startsWith('http') ? image.image.path : getCockpitImageUrl(image.image.path)}
                 alt={image.title || 'Gallery image'}
                 fill
-                className="object-cover group-hover:scale-110 transition-transform duration-700"
-                sizes="(max-width: 768px) 50vw, (max-width: 1200px) 33vw, 25vw"
+                className="object-cover hover:scale-[1.02] transition-transform cursor-pointer"
               />
-              <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300"></div>
             </div>
           ))}
         </div>
-        <div className="text-center">
-          <Link href={addLocaleToPath('/gallery', locale)} className="btn-secondary">
+        <div className="text-center mt-8">
+          <Link href={addLocaleToPath('/gallery', locale)} className="text-temple-orange hover:underline">
             {t.viewAll}
           </Link>
         </div>
