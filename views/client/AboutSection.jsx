@@ -43,7 +43,7 @@ export default function AboutSection() {
 
             {/* Center Content */}
             <div className="flex-1 text-center">
-              <h2 className="text-3xl font-serif text-charcoal mb-4">About Our Temple Trust</h2>
+              <h2 className="text-3xl font-serif text-charcoal mb-4">{t.title}</h2>
               <p className="text-base text-charcoal/80 leading-relaxed">
                 {t.description}
               </p>

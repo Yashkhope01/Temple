@@ -29,7 +29,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link href={addLocaleToPath('/', locale)} className="flex items-center group">
             <span className="text-xl font-serif text-charcoal group-hover:text-temple-orange transition-colors duration-300">
-              Shri Temple Trust
+              Dhaneshwar Trust
             </span>
           </Link>
 

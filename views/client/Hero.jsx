@@ -9,26 +9,26 @@ export function Hero() {
 
   const content = {
     en: {
-      title: 'The povine and shirlis temple temple',
-      description: 'Your oijuen sweet mono dierrioos in Laur-dalwatan tur viathait enje, sea lorriher, oocber, ens vons tod cuf, hes crearm, same hus undenume, connectia i rubaraaoc. thero arktarien w zolem hris tvins ous nower eruss ever elic. ens pare l td of ori cne tlie teos and life.',
-      intro: 'Introduces for Nand/ius cus comple',
+      title: 'The Sanctuary of Silence',
+      description: 'Nestled in the heart of Chinchwad, the Shree Dhaneshwar Temple is more than a monument; it is a pause in the chaos. Dedicated to Lord Shiva, this ancient sanctum bridges the gap between centuries of tradition and the quiet search for inner peace. Here, the noise fades, and the divine speaks in the language of silence.',
+      intro: 'Managed by Shree Dhaneshwar Trust',
       explore: 'Explore Temple',
       learn: 'Learn More',
     },
-    hi: {
-      title: 'मंदिर मंदिर',
-      description: 'आपका पवित्र मंदिर अनुभव।',
-      intro: 'मंदिर परिचय',
-      explore: 'मंदिर खोजें',
-      learn: 'और जानें',
-    },
+   hi: {
+    title: 'शांति का पवित्र आलय',
+    description: 'चिंचवड के हृदय में स्थित, श्री धनेश्वर मंदिर केवल एक वास्तुकला नहीं है; यह जीवन की आपाधापी में एक सुकून भरा ठहराव है। भगवान शिव को समर्पित, यह प्राचीन पवित्र स्थल सदियों पुरानी परंपराओं और मन की शांति के बीच का सेतु है। यहाँ शोर थम जाता है और दिव्यता मौन की भाषा में संवाद करती है।',
+    intro: 'श्री धनेश्वर ट्रस्ट द्वारा प्रबंधित',
+    explore: 'मंदिर भ्रमण',
+    learn: 'और जानें'
+      },
     mr: {
-      title: 'मंदिर मंदिर',
-      description: 'आपचा पवित्र मंदिर अनुभव।',
-      intro: 'मंदिर परिचय',
-      explore: 'मंदिर शोधा',
-      learn: 'आणखी जाणून घ्या',
-    },
+    title: 'शांततेचे पवित्र धाम',
+    description: 'चिंचवडच्या गजबजलेल्या भागात वसलेले श्री धनेश्वर मंदिर हे केवळ एक वास्तू नाही, तर धकाधकीच्या आयुष्यातील एक शांत विसावा आहे. भगवान शंकरांना समर्पित, हे प्राचीन स्थान शेकडो वर्षांच्या परंपरा आणि आंतरिक शांततेचा शोध यांचा दुवा आहे. इथे बाहेरील गोंगाट विरून जातो आणि ईश्वर मौनाच्या भाषेत भक्तांशी संवाद साधतो.',
+    intro: 'श्री धनेश्वर ट्रस्टद्वारे व्यवस्थापित',
+    explore: 'मंदिर दर्शन',
+    learn: 'अधिक जाणून घ्या'
+     }
   }
 
   const t = content[locale] || content.en
@@ -37,7 +37,7 @@ export function Hero() {
     <section className="relative h-96 lg:h-[600px] flex items-center justify-start overflow-hidden">
       {/* Full Width Background Image */}
       <Image
-        src="/images/Gemini_Generated_Image_9dmdsj9dmdsj9dmd.png"
+        src="/images/backdrop.png"
         alt="Temple"
         fill
         className="object-cover absolute inset-0"

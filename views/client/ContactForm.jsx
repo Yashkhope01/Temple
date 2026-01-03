@@ -21,6 +21,7 @@ export function ContactForm() {
       phone: 'Phone (Optional)',
       message: 'Message',
       submit: 'Send Message',
+      sendAnother: 'Send Another Message',
       success: 'Thank you! Your message has been sent successfully.',
       error: 'There was an error sending your message. Please try again.',
       required: 'This field is required',
@@ -32,6 +33,7 @@ export function ContactForm() {
       phone: 'फोन (वैकल्पिक)',
       message: 'संदेश',
       submit: 'संदेश भेजें',
+      sendAnother: 'दूसरा संदेश भेजें',
       success: 'धन्यवाद! आपका संदेश सफलतापूर्वक भेज दिया गया है।',
       error: 'आपका संदेश भेजने में त्रुटि हुई। कृपया पुनः प्रयास करें।',
       required: 'यह फ़ील्ड आवश्यक है',
@@ -43,6 +45,7 @@ export function ContactForm() {
       phone: 'फोन (पर्यायी)',
       message: 'संदेश',
       submit: 'संदेश पाठवा',
+      sendAnother: 'दूसरा संदेश पाठवा',
       success: 'धन्यवाद! तुमचा संदेश यशस्वीरित्या पाठवला गेला आहे.',
       error: 'तुमचा संदेश पाठवताना त्रुटी आली. कृपया पुन्हा प्रयत्न करा.',
       required: 'हे फील्ड आवश्यक आहे',
@@ -102,7 +105,7 @@ export function ContactForm() {
           onClick={() => setStatus('idle')}
           className="mt-6 px-6 py-2 bg-temple-orange text-white rounded-lg font-medium hover:bg-temple-orange/90 transition-all"
         >
-          Send Another Message
+          {t.sendAnother}
         </button>
       </div>
     )

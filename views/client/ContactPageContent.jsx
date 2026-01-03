@@ -8,10 +8,10 @@ export function ContactPageContent() {
 
   const content = {
     en: {
-      title: 'Hindu Temple Trust',
-      description1: 'A vibrant spiritual community dedicated to preserving and celebrating the rich traditions of Hindu heritage. Our temple is a sacred sanctuary where devotees gather for prayer, meditation, and community activities.',
-      description2: 'We warmly welcome all visitors and seekers of spiritual wisdom. Whether you wish to participate in our rituals, attend our events, or simply experience the peaceful atmosphere, we are here to serve you with devotion and compassion.',
-      contactButton: 'Contact Temple',
+      "heading": "The Heart of the Community",
+      "paragraph_1": "We are a vibrant spiritual community dedicated to preserving and celebrating the rich traditions of our heritage. The Shree Dhaneshwar Temple is a sacred sanctuary where devotees gather for prayer, meditation, and to find a moment of peace.",
+      "paragraph_2": "We warmly welcome all visitors and seekers of spiritual wisdom. Whether you wish to participate in our daily rituals, attend cultural events, or simply sit in the quiet presence of the divine, we are here to serve you with devotion and compassion.",
+      "button_text": "Contact the Trust",
       contactDetails: 'Contact Details',
       contactInfo: 'Contact Information',
       location: 'Location',
@@ -19,13 +19,13 @@ export function ContactPageContent() {
       phone: 'Phone',
       phoneNumbers: '+91 77688 81133\n+91 96071 06262',
       email: 'Email',
-      emailAddress: 'chinchwaddeosthantrust@gmail.com',
+      emailAddress: 'dhaneshwartemple@gmail.com',
     },
     hi: {
-      title: 'हिंदू मंदिर ट्रस्ट',
-      description1: 'एक जीवंत आध्यात्मिक समुदाय जो हिंदू धरोहर की समृद्ध परंपराओं को संरक्षित करने और मनाने के लिए समर्पित है। हमारा मंदिर एक पवित्र अभयारण्य है जहां भक्त प्रार्थना, ध्यान और सामुदायिक गतिविधियों के लिए एकत्रित होते हैं।',
-      description2: 'हम सभी आगंतुकों और आध्यात्मिक ज्ञान के साधकों का स्वागत करते हैं। चाहे आप हमारी परंपराओं में भाग लेना चाहते हों, हमारे कार्यक्रमों में शामिल होना चाहते हों, या केवल शांतिपूर्ण वातावरण का अनुभव करना चाहते हों, हम भक्ति और करुणा के साथ आपकी सेवा के लिए यहां हैं।',
-      contactButton: 'मंदिर से संपर्क करें',
+      heading: 'आस्था और सेवा का केंद्र',
+      paragraph_1: 'हमारा समुदाय अपनी समृद्ध विरासत और परंपराओं को संरक्षित करने और मनाने के लिए समर्पित है। श्री धनेश्वर मंदिर एक पवित्र अभयारण्य है जहाँ भक्त प्रार्थना, ध्यान और मन की शांति पाने के लिए एकत्रित होते हैं।',
+      paragraph_2: 'हम सभी आगंतुकों और आध्यात्मिक साधकों का हार्दिक स्वागत करते हैं। चाहे आप हमारे दैनिक अनुष्ठानों में भाग लेना चाहते हों, सांस्कृतिक कार्यक्रमों में शामिल होना चाहते हों, या बस दिव्यता की उपस्थिति में कुछ पल मौन रहना चाहते हों, हम सेवा के लिए सदैव तत्पर हैं।',
+      button_text: 'संपर्क करें',
       contactDetails: 'संपर्क विवरण',
       contactInfo: 'संपर्क जानकारी',
       location: 'स्थान',
@@ -33,21 +33,20 @@ export function ContactPageContent() {
       phone: 'फोन',
       phoneNumbers: '+91 77688 81133\n+91 96071 06262',
       email: 'ईमेल',
-      emailAddress: 'chinchwaddeosthantrust@gmail.com',
+      emailAddress: 'dhaneshwartemple@gmail.com',
     },
     mr: {
-      title: 'हिंदू मंदिर ट्रस्ट',
-      description1: 'एक जीवंत आध्यात्मिक समुदाय जो हिंदू धरोहरच्या समृद्ध परंपरांना संरक्षण आणि उदयापन देण्यासाठी समर्पित आहे. आमचे मंदिर एक पवित्र अभयारण्य आहे जेथे भक्त प्रार्थना, ध्यान आणि सामुदायिक कार्यक्रमांसाठी एकत्रित होतात.',
-      description2: 'आम्ही सर्व पर्यटक आणि आध्यात्मिक ज्ञानचे साधक यांचे स्वागत करतो. आपण आमच्या परंपरांमध्ये भाग घ्यायचे असो, आमच्या कार्यक्रमांमध्ये सामील व्हायचे असो किंवा शांत वातावरणाचा अनुभव घ्यायचे असो, आम्ही भक्ती आणि करुणेने आपली सेवा करण्यासाठी येथे आहोत.',
-      contactButton: 'मंदिराशी संपर्क साधा',
-      contactDetails: 'संपर्क तपशील',
+      heading: 'भक्ती आणि सेवेचा वारसा',
+      paragraph_1: 'आमचा मंदिर ट्रस्ट समृद्ध वारसा आणि परंपरा जपण्यासाठी व साजरे करण्यासाठी समर्पित आहे. श्री धनेश्वर मंदिर हे एक असे पवित्र स्थान आहे जिथे भक्त प्रार्थना, ध्यान आणि मानसिक शांतीसाठी एकत्र येतात.',
+      paragraph_2: 'आम्ही सर्व भाविकांचे आणि आध्यात्मिक ज्ञानिज्ञासूंचे मनापासून स्वागत करतो. तुम्हाला नित्य पूजाविधींमध्ये सहभागी व्हायचे असो, सांस्कृतिक कार्यक्रमांचा आनंद घ्यायचा असो, किंवा फक्त देवाच्या सानिध्यात निवांत क्षण घालवायचे असोत, आम्ही सेवेसाठी तत्पर आहोत.',
+      button_text: 'संपर्क साधा',
       contactInfo: 'संपर्क माहिती',
       location: 'स्थान',
       locationAddress: 'श्री मंगलमूर्ति वाडा\nगणेश पेठ, चिंचवाड गाव\nपुणे, महाराष्ट्र 411033',
       phone: 'फोन',
       phoneNumbers: '+91 77688 81133\n+91 96071 06262',
       email: 'ईमेल',
-      emailAddress: 'chinchwaddeosthantrust@gmail.com',
+      emailAddress: 'dhaneshwartemple@gmail.com',
     },
   }
 
@@ -60,16 +59,16 @@ export function ContactPageContent() {
           {/* Left Section - Text Content */}
           <div className="text-charcoal space-y-6">
             <h1 className="text-5xl lg:text-6xl font-serif text-charcoal leading-tight">
-              {t.title}
+              {t.heading}
             </h1>
             <p className="text-lg text-charcoal/80 leading-relaxed">
-              {t.description1}
+              {t.paragraph_1}
             </p>
             <p className="text-lg text-charcoal/80 leading-relaxed">
-              {t.description2}
+              {t.paragraph_2}
             </p>
             <button className="px-8 py-3 border-2 border-temple-orange text-temple-orange rounded-full font-medium hover:bg-temple-orange hover:text-charcoal transition-all duration-300">
-              {t.contactButton}
+              {t.button_text}
             </button>
           </div>
 
