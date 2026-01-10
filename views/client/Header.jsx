@@ -29,7 +29,7 @@ export function Header() {
         <div className="flex h-16 items-center justify-between">
           <Link href={addLocaleToPath('/', locale)} className="flex items-center group">
             <span className="text-xl font-serif text-charcoal group-hover:text-temple-orange transition-colors duration-300">
-              Dhaneshwar Trust
+              Shri Dhaneshwar Trust
             </span>
           </Link>
 
@@ -74,13 +74,6 @@ export function Header() {
                 </option>
               ))}
             </select>
-
-            <Link
-              href={addLocaleToPath('/contact', locale)}
-              className="ml-4 px-6 py-2 bg-temple-orange text-white rounded-lg font-medium hover:bg-temple-orange/90 transition-all duration-300 shadow-md hover:shadow-lg"
-            >
-              Donate
-            </Link>
 
             <button
               className="md:hidden p-2 text-charcoal hover:text-temple-orange"

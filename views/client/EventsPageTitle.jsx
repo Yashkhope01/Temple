@@ -7,13 +7,13 @@ export function EventsPageTitle() {
 
   const content = {
     en: {
-      title: 'Upcoming Events',
+      title: ' Events',
     },
     hi: {
-      title: 'आगामी कार्यक्रम',
+      title: ' कार्यक्रम',
     },
     mr: {
-      title: 'आगामी कार्यक्रम',
+      title: ' कार्यक्रम',
     },
   }
 

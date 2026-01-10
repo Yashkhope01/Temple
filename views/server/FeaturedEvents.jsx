@@ -87,7 +87,13 @@ export async function FeaturedEvents() {
                     })}
                   </div>
                   <h3 className="text-xl font-serif mb-2 text-charcoal">{title}</h3>
-                  <p className="text-sm text-charcoal/70 line-clamp-3">{description}</p>
+                  <p className="text-sm text-charcoal/70 line-clamp-3 mb-4">{description}</p>
+                  <Link 
+                    href={addLocaleToPath(`/events/${event._id}`, locale)}
+                    className="text-temple-orange hover:underline font-medium text-sm inline-flex items-center gap-1"
+                  >
+                    View Details →
+                  </Link>
                 </div>
               </div>
             )

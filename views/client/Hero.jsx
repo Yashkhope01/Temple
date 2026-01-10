@@ -1,11 +1,22 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import { useLanguage } from '@/views/client/LanguageProvider'
 import { addLocaleToPath } from '@/lib/i18n'
 
 export function Hero() {
   const { locale } = useLanguage()
+  const [currentImageIndex, setCurrentImageIndex] = useState(0)
+
+  const backgroundImages = ['/images/backdrop.png', '/images/sc1.png', '/images/sc2.png']
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % backgroundImages.length)
+    }, 5000)
+    return () => clearInterval(interval)
+  }, [backgroundImages.length])
 
   const content = {
     en: {
@@ -35,15 +46,20 @@ export function Hero() {
 
   return (
     <section className="relative h-96 lg:h-[600px] flex items-center justify-start overflow-hidden">
-      {/* Full Width Background Image */}
-      <Image
-        src="/images/backdrop.png"
-        alt="Temple"
-        fill
-        className="object-cover absolute inset-0"
-        priority
-        quality={90}
-      />
+      {/* Carousel Background Images */}
+      {backgroundImages.map((image, index) => (
+        <Image
+          key={index}
+          src={image}
+          alt="Temple"
+          fill
+          className={`object-cover absolute inset-0 transition-opacity duration-1000 ${
+            index === currentImageIndex ? 'opacity-100' : 'opacity-0'
+          }`}
+          priority={index === 0}
+          quality={90}
+        />
+      ))}
 
       {/* Dark Overlay for better text readability */}
       <div className="absolute inset-0 bg-black/30"></div>
@@ -61,6 +77,20 @@ export function Hero() {
         <p className="text-sm lg:text-base font-medium text-white/90 mb-6 drop-shadow-md">
           {t.intro}
         </p>
+      </div>
+
+      {/* Carousel Indicators */}
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+        {backgroundImages.map((_, index) => (
+          <button
+            key={index}
+            onClick={() => setCurrentImageIndex(index)}
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentImageIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/75'
+            }`}
+            aria-label={`Go to slide ${index + 1}`}
+          />
+        ))}
       </div>
     </section>
   )
