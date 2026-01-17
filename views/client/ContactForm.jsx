@@ -144,6 +144,20 @@ export function ContactForm() {
       </div>
 
       <div>
+        <label htmlFor="phone" className="block text-sm font-medium text-charcoal mb-2">
+          {t.phone}
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          value={formData.phone}
+          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+          className="w-full px-4 py-2 border border-charcoal/20 bg-white rounded focus:outline-none focus:ring-2 focus:ring-temple-orange focus:border-transparent transition-all text-charcoal placeholder-charcoal/40"
+          placeholder={t.phone}
+        />
+      </div>
+
+      <div>
         <label htmlFor="message" className="block text-sm font-medium text-charcoal mb-2">
           {t.message} <span className="text-temple-orange">*</span>
         </label>

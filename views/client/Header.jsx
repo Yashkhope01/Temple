@@ -1,5 +1,6 @@
 'use client'
 
+import { useState } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { useLanguage } from '@/views/client/LanguageProvider'
@@ -9,6 +10,7 @@ export function Header() {
   const pathname = usePathname()
   const router = useRouter()
   const { locale, setLocale } = useLanguage()
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 
   const navigation = [
     { name: 'Home', href: '/', en: 'Home', hi: 'होम', mr: 'मुख्यपृष्ठ' },
@@ -77,14 +79,44 @@ export function Header() {
 
             <button
               className="md:hidden p-2 text-charcoal hover:text-temple-orange"
-              aria-label="Menu"
+              aria-label="Toggle menu"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
               <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                {mobileMenuOpen ? (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                ) : (
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                )}
               </svg>
             </button>
           </div>
         </div>
+
+        {/* Mobile Menu */}
+        {mobileMenuOpen && (
+          <div className="md:hidden py-4 bg-beige/95 backdrop-blur-sm">
+            <div className="flex flex-col space-y-3">
+              {navigation.map((item) => {
+                const href = addLocaleToPath(item.href, locale)
+                const label = locale === 'en' ? item.en : locale === 'hi' ? item.hi : item.mr
+                
+                return (
+                  <Link
+                    key={item.name}
+                    href={href}
+                    onClick={() => setMobileMenuOpen(false)}
+                    className={`text-charcoal hover:text-temple-orange px-4 py-2 transition-colors ${
+                      isActive(item.href) ? 'text-temple-orange bg-temple-orange/10' : ''
+                    }`}
+                  >
+                    {label}
+                  </Link>
+                )
+              })}
+            </div>
+          </div>
+        )}
       </nav>
     </header>
   )

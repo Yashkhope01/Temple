@@ -47,13 +47,15 @@ export async function GalleryPreview() {
           {images.map((image) => (
             <div
               key={image._id}
-              className="relative aspect-square overflow-hidden rounded-lg"
+              className="relative aspect-square overflow-hidden rounded-lg bg-gray-200"
             >
               <Image
-                src={image.image.path.startsWith('http') ? image.image.path : getCockpitImageUrl(image.image.path)}
+                src={getCockpitImageUrl(image.image.path)}
                 alt={image.title || 'Gallery image'}
                 fill
                 className="object-cover hover:scale-[1.02] transition-transform cursor-pointer"
+                sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                loading="lazy"
               />
             </div>
           ))}

@@ -67,7 +67,15 @@ export function ContactPageContent() {
             <p className="text-lg text-charcoal/80 leading-relaxed">
               {t.paragraph_2}
             </p>
-            <button className="px-8 py-3 border-2 border-temple-orange text-temple-orange rounded-full font-medium hover:bg-temple-orange hover:text-charcoal transition-all duration-300">
+            <button 
+              onClick={() => {
+                document.getElementById('contact-details')?.scrollIntoView({ 
+                  behavior: 'smooth',
+                  block: 'start'
+                })
+              }}
+              className="px-8 py-3 border-2 border-temple-orange text-temple-orange rounded-full font-medium hover:bg-temple-orange hover:text-charcoal transition-all duration-300"
+            >
               {t.button_text}
             </button>
           </div>
@@ -84,7 +92,7 @@ export function ContactPageContent() {
         </div>
 
         {/* Contact Information Section */}
-        <div className="mt-20 pt-12 border-t border-charcoal/20">
+        <div id="contact-details" className="mt-20 pt-12 border-t border-charcoal/20 scroll-mt-20">
           <h3 className="text-3xl font-serif text-charcoal mb-8">{t.contactInfo}</h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div className="space-y-2">

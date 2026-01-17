@@ -101,9 +101,9 @@ export function Footer() {
             <p className="text-beige/70 text-xs leading-relaxed mb-1 whitespace-pre-line">
               {t.address}
             </p>
-            <p className="text-beige/70 text-xs">
+            <a href="tel:+917768881133" className="text-beige/70 hover:text-temple-orange transition-colors text-xs" aria-label="Call temple phone number">
               {t.phone}
-            </p>
+            </a>
           </div>
         </div>
         

@@ -45,7 +45,7 @@ export function Hero() {
   const t = content[locale] || content.en
 
   return (
-    <section className="relative h-96 lg:h-[600px] flex items-center justify-start overflow-hidden">
+    <section className="relative h-96 lg:h-[600px] flex items-center justify-start overflow-hidden" role="banner" aria-label="Hero section">
       {/* Carousel Background Images */}
       {backgroundImages.map((image, index) => (
         <Image

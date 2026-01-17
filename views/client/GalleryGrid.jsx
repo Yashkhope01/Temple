@@ -7,19 +7,33 @@ import Image from 'next/image'
 export function GalleryGrid({ initialImages = [] }) {
   const [images, setImages] = useState(initialImages)
   const [activeImage, setActiveImage] = useState(null)
+  const [imageErrors, setImageErrors] = useState({})
 
   useEffect(() => {
     setImages(initialImages)
   }, [initialImages])
 
+  const handleImageError = (imageId) => {
+    setImageErrors(prev => ({ ...prev, [imageId]: true }))
+  }
+
   // Close on ESC key
   useEffect(() => {
     const handleKey = (e) => {
-      if (e.key === 'Escape') setActiveImage(null)
+      if (e.key === 'Escape') {
+        setActiveImage(null)
+      }
     }
-    window.addEventListener('keydown', handleKey)
-    return () => window.removeEventListener('keydown', handleKey)
-  }, [])
+    if (activeImage) {
+      window.addEventListener('keydown', handleKey)
+      // Prevent body scroll when lightbox is open
+      document.body.style.overflow = 'hidden'
+      return () => {
+        window.removeEventListener('keydown', handleKey)
+        document.body.style.overflow = 'unset'
+      }
+    }
+  }, [activeImage])
 
   // Masonry layout helper - varied aspect ratios
   const getAspectRatio = (index) => {
@@ -41,11 +55,19 @@ export function GalleryGrid({ initialImages = [] }) {
               onClick={() => setActiveImage(item)}
               className="relative mb-4 w-full overflow-hidden rounded-xl bg-gray-200 cursor-pointer group break-inside-avoid"
             >
-              <img
-                src={getCockpitImageUrl(img.path)}
-                alt={item.title || 'Gallery image'}
-                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-              />
+              {!imageErrors[item._id] ? (
+                <img
+                  src={getCockpitImageUrl(img.path)}
+                  alt={item.title || 'Gallery image'}
+                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  onError={() => handleImageError(item._id)}
+                  loading="lazy"
+                />
+              ) : (
+                <div className="flex items-center justify-center min-h-[200px] text-gray-400">
+                  <span>Image unavailable</span>
+                </div>
+              )}
               {/* Overlay on hover */}
               <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300"></div>
             </button>
@@ -58,6 +80,9 @@ export function GalleryGrid({ initialImages = [] }) {
         <div
           className="fixed inset-0 z-50 bg-black/95 flex items-center justify-center p-4"
           onClick={() => setActiveImage(null)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Image lightbox"
         >
           <div
             className="relative max-w-6xl w-full"

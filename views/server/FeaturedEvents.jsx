@@ -67,14 +67,15 @@ export async function FeaturedEvents() {
                 key={event._id}
                 className="bg-white hover:shadow-lg transition-shadow rounded-lg overflow-hidden"
               >
-                {event.image && (
-                  <div className="relative h-48 w-full overflow-hidden">
+                {event.image?.path && (
+                  <div className="relative h-48 w-full overflow-hidden bg-gray-200">
                     <Image
-                      src={event.image.path.startsWith('http') ? event.image.path : getCockpitImageUrl(event.image.path)}
-                      alt={title}
+                      src={getCockpitImageUrl(event.image.path)}
+                      alt={title || 'Event image'}
                       fill
                       className="object-cover"
                       sizes="(max-width: 768px) 100vw, 33vw"
+                      loading="lazy"
                     />
                   </div>
                 )}
